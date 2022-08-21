@@ -6,14 +6,14 @@ pipeline {
   }
 
   environment {
-    ARTIFACT_ID = "ancordss/webapp:${env.BUILD_NUMBER}"
+    ARTIFACT_ID = "ancordss/webapp"
   }
 
   stages {
     stage('Build') {
       steps {
         script {
-            dockerImage = docker.build "${env.ARTIFACT_ID}"
+            dockerImage = docker.build ARTIFACT_ID
         }
       }
     }
